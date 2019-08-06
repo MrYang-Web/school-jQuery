@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>04总结</title>
+</head>
+<body>
+	<h1>这两天学习的总结</h1>
+	<hr>
+	<h3>入口函数</h3>
+	<pre>
+		window.onload = function (){
+			...
+		}
+		
+		$(function{
+			...
+		})
+	</pre>
+	<hr >
+	<h3>各类选择器</h3>
+	<pre>
+		$("#id")
+		
+		$(".class")
+		
+		$("element")
+	</pre>
+	<hr >
+	<h3>演示了一个常用筛选器</h3>
+	<pre>
+		$("p").eq(3)
+	</pre>
+	<hr >
+	<h3>讲解一个鼠标单击事件 click()</h3>
+	<pre>
+		$("p").click(function(){
+			...
+		})
+	</pre>
+	<hr >
+	<h3>讲解了一个弹窗功能</h3>
+	<pre>
+		alert("hello word");
+	</pre>
+	<hr >
+	<h3>讲解了css类样式增删查改</h3>
+	<pre>
+		增加class样式
+		$("p").addClass("class1 class2");
+		
+		移除class样式
+		$("p").removeClass("class1 class2");
+		
+		切换class样式
+		$("p").toggleClass("class1 class2");
+	</pre>
+	<h3>注意点:这里只是操作class类,而不是具体样式</h3>
+	<hr >
+	<h3>讲解了简单显示隐藏动画</h3>
+	<pre>
+		显示
+		$("p").show(1000);
+		
+		隐藏
+		$("p").hide(1000);
+		
+		切换
+		$("p").toggle(1000);
+	</pre>
+	<h3>讲解了回调函数的使用</h3>
+	<p>回调函数使用非常强大,需要去理解,很多jqeury的方法都可以追加回调函数,具体的去查询API文档</p>
+</body>
+</html>

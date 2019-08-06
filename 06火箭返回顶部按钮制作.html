@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>demo</title>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	//1.入口函数
+	$(function(){
+		//2.通过窗口对象抓取滚动条事件,并为其添加功能
+	    $(window).scroll(function (){
+			
+			//3.声明一个变量用来保存通过窗口的方法抓取的滚动条距离窗口顶部的数值
+			var scroll = $(window).scrollTop();
+			
+			//4.做一个条件判断,让这个滚动条距离顶部的数值
+			//小于400的时候隐藏
+			//其他时候显示
+			if (scroll<200) {
+				$("#rocket").hide(200);
+			} else{
+				$("#rocket").show(200);
+			};
+		})
+		
+		//5.为火箭添加点击事件
+		$("#rocket").click(function (){
+			
+			//6.利用jquery的aninate()方法让火箭以动画形式回到顶部
+			$("#rocket").animate({bottom:"100%"},200);
+			
+			//7.window是不能动的,它是包含窗口所有东西.
+			//这个要让滚动条往上走,只能通过html文档抓取到body
+			//实际上我们也只是需要body往上移动
+			$("html,body").animate({scrollTop:"0px"},200);
+			
+			
+			//8.设定一个延时器让回顶部0.5秒后清除样式
+			setTimeout(function (){
+				//9.要删除行内样式,需要使用新方法removeAttr
+				$("#rocket").removeAttr("style");
+			},250);
+		})
+
+	});
+</script>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	#warp {
+		width: 100%;
+		height: 2300px;
+		background:linear-gradient(to bottom,#f1c40f,#e74c3c,#3498db);
+		color: #fff;
+	}
+	#warp p {
+		font-size: 100px;
+		text-align: center;
+		padding: 300px 0px;
+	}
+	#rocket {
+		width: 100px;
+		height: 150px;
+		background: url(rocket.png) no-repeat bottom;
+		background-size: 100%;
+		position: fixed;
+		right: 50px;
+		bottom: 50px;
+		display: none;
+	}
+	#rocket:hover {
+		background-position: top;
+	}
+</style>
+</head>
+<body>
+	<div id="warp">
+		<p>I</p>
+		<p>AM</p>
+		<p>CONTENT</p>
+	</div>
+	<div id="rocket">
+		
+	</div>
+</body>
+</html>

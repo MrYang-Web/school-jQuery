@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>07总结</title>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<h1>行内样式的操作</h1>
+	<pre>
+		$("p").css({
+			"width":"20px",
+			"height":"20px",
+			"background":"red"
+		})
+	</pre>
+	<p>注意行内样式修改的语法格式</p>
+	<hr >
+	<h1>学习了window对象</h1>
+	<p>1.对象是个数据类型</p>
+	<p>2.html中大多数标签都是对象</p>
+	<p>3.window就是浏览器对象</p>
+	<p>我们就是通过操作一系列对象的内 属性 | 方法 来达到操作html文档的效果</p>
+	<hr >
+	<h1>window对象下有一个事件叫scroll()</h1>
+	<p>这个事件,就是用户操作滚动条的时候触发</p>
+	<h1>window对象下还有一个scrollTop()这个一个功能(方法)</h1>
+	<p>这个功能用于获取对象滚动条到顶端的距离</p>
+	<hr >
+	<h1>animate({...},time)自定义动画</h1>
+	<p>这个方法可以操作对象里的属性,以制作成动画</p>
+	<hr >
+	<h1>setTimeout(function(){...},time)延时器</h1>
+	<p>设定功能以多少秒后再执行</p>
+	<h1>setInterval(function(){...},time)计时器</h1>
+	<p>设定功能以多少秒重复执行</p>
+	<hr >
+	<h1>还学习了if()else()语句</h1>
+	<h1>注意:</h1>
+	<h1>如果需要整个网页页面往上移动,其实我们并不是在控制window对象</h1>
+	<h1>因为window对象还包含了整个浏览器的所有界面</h1>
+	<h1>所以我们在制作这个案例的时候,其实控制的html下的body</h1>
+</body>
+</html>

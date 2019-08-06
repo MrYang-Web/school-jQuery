@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>03回调函数的小案例</title>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		//1.先选取按钮为按钮添加点击功能
+	    $("#bto1").click(function (){
+			$("div").hide(1000,function (){
+				$("div").show(1000,function (){
+					$("div").hide(1000,function (){
+						$("div").show(1000,function (){
+							alert("动画完了,别傻看了");
+						});
+					});
+				});
+			});
+		})
+	});
+</script>
+<style type="text/css">
+	div {
+		width: 100px;
+		height: 100px;
+		background-color: red;
+	}
+</style>
+</head>
+<body>
+	<button type="button" id="bto1">按钮</button>
+	<div></div>
+</body>
+</html>

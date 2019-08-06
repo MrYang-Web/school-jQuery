@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>02.一些重要的问题</title>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		//1.先给按钮1添加点击事件
+		$("#but1").click(function (){
+			// 2.先选取需要添加样式的元素,再利用addClass()方法添加样式.
+			$("div").addClass("class1 class2");
+		});
+		
+		
+		//2.先给按钮2添加点击事件
+		$("#but2").click(function (){
+			//2.先选取需要删除样式的元素,再利用removeClass()方法删除样式.
+			$("div").removeClass("class1 class2");
+		});
+		
+		$("#but3").click(function (){
+			$("div").toggleClass("class1 class2");
+		});
+	});
+</script>
+<style type="text/css">
+	.class1 {
+		width: 100px;
+		height: 100px;
+		background-color: red;
+	}
+	.class2 {
+		border: 10px solid blue;
+	}
+</style>
+</head>
+<body>
+	<button type="button" id="but1">一</button>
+	<button type="button" id="but2">二</button>
+	<button type="button" id="but3">三</button>
+	<div></div>
+	<hr >
+	<h1>javascript和jquery的基础知识最重要的四个关键字-增-删-查-改-</h1>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>01.jquery的入口函数以及相关知识点</title>
+</head>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	
+// 	//1.先敲定入口函数,这样在html文档头部引入JS文件的时候,才能正确导入
+// 	window.onload = function (){
+// 		
+// 
+// 		//2.通过JS语法选定按钮,并保存进声明好的变量 a 
+// 		var a = document.getElementById("button");
+// 		
+// 		//3.给变量a绑定点击事件
+// 		a.onclick = function (){
+// 			
+// 			//4.编写功能
+// 			alert("hello");
+// 		}
+// 
+// 	}
+
+
+
+		//1.完整jquery入口函数
+// 		$(document).ready(function() {
+// 			.....
+// 		});
+		//2.缩写jquery入口函数		
+		$(function(){
+			// 3.通过jquery的各类选择器选中元素,并绑定事件
+			// 4.这里注意,原生JS的事件和jquery的事件是有区别的
+		   $("#button").click(function (){
+			   //5.选取要处理的元素,并为其添加功能
+			   $("h1").toggle(1000);
+		   })
+		});
+
+
+</script>
+<body>
+	<button type="button" id="button">点我</button>
+	<h1>点我就会消失</h1>
+<hr >
+
+<h1>学习了入口函数</h1>
+<pre>
+	原生JS:
+	window.onload = function(){
+		.....
+	}
+	
+	jquery:
+	$(function(){
+		.....
+	})
+</pre>
+<hr >
+
+
+<h1>学习jquery的ID选择器</h1>
+<pre>
+	$("#id")  
+</pre>
+<hr>
+
+
+<h1>学习了jquery的类选择器</h1>
+<pre>
+	$(".class")
+</pre>
+<hr >
+
+
+<h1>原生JS的点击事件:</h1>
+<pre>
+	抓取得元素或者对象.onclick = function(){
+		....
+	}
+</pre>
+<hr >
+
+
+<h1>jquery的点击事件</h1>
+<pre>
+	$("#id").click(function(){
+		....
+	}) 
+</pre>
+<h1>注意点:jquery的点击事件要加入回调函数,就是写在click()后面的括号内</h1>
+<h1>效果等于原生的= 等号</h1>
+<hr >
+
+
+<h1>学习了jquery的一个小功能,弹窗 alert()</h1>
+<h1>还学习了一个动画切换功能 toggle()</h1>
+</body>
+</html>
