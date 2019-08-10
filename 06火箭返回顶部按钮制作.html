@@ -28,19 +28,19 @@
 		$("#rocket").click(function (){
 			
 			//6.利用jquery的aninate()方法让火箭以动画形式回到顶部
-			$("#rocket").animate({bottom:"100%"},200);
+			$("#rocket").animate({bottom:"100%"},300);
 			
 			//7.window是不能动的,它是包含窗口所有东西.
 			//这个要让滚动条往上走,只能通过html文档抓取到body
 			//实际上我们也只是需要body往上移动
-			$("html,body").animate({scrollTop:"0px"},200);
+			$("html").animate({scrollTop:"0px"},300);
 			
 			
 			//8.设定一个延时器让回顶部0.5秒后清除样式
 			setTimeout(function (){
 				//9.要删除行内样式,需要使用新方法removeAttr
 				$("#rocket").removeAttr("style");
-			},250);
+			},350);
 		})
 
 	});
