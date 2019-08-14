@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>08背景颜色设置</title>
+<link rel="stylesheet" type="text/css" href="icon/iconfont.css"/>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		//让界面弹出
+	    $("#setting").click(function (){
+			$(".box").toggleClass("box-act");
+		});
+		
+		//设置预览颜色颜色
+		//为输入框绑定一个键盘抬起事件,每次按键抬起都触发这个事件
+		$("#hex").keyup(function (){
+			//让预览框的CSS背景颜色于输入框的值一致
+			$("#prev").css("background",$("#hex").val());
+		});
+		
+		//设置背景颜色
+		//为apply应用按钮添加点击事件
+		$("#apply").click(function (){
+			$("html").css("background",$("#hex").val());
+		})
+	});
+</script>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	body {
+		background: #E5E5E5;
+		
+	}
+	#setting{
+		border: none;
+		background: none;
+		outline: none;
+		transition: 0.6s;
+		position: absolute;
+		float: right;
+		right: 20px;
+		top: 20px;
+		cursor: pointer;
+	}
+	#setting>span {
+		font-size: 60px;
+		color: #9b59b6;
+	}
+	#setting:hover {
+		transform: rotate(90deg);
+	}
+	.box {
+		background: #FFFFFF;
+		border-radius: 5px;
+		position: absolute;
+		top: 0%;
+		left: 50%;
+		opacity: 0;
+		transform: translate(-50%,-50%);
+		transition: 0.8s;
+	}
+	.box-act{
+		top:50%;
+		opacity: 1;
+	}
+	h2 {
+		padding: 10px 34px;
+		color: #FFFDEF;
+		background: #9b59b6;
+		border-top-right-radius: 5px;
+		border-top-left-radius: 5px;
+	}
+	#textbox {
+		padding: 34px;
+		overflow: hidden;
+		position: relative;
+	}
+	input {
+		border: 1px solid gray;
+		outline: none;
+		padding: 0 80px;
+		height: 40px;
+		border-radius: 5px;
+
+	}
+	#prev {
+		width: 64px;
+		height: 34px;
+		background: #000000;
+		position: absolute;
+		top: 38px;
+		left: 38px;
+		border-radius: 5px;
+	} 
+	#apply {
+		padding: 10px;
+		font-size: 12px;
+		color: #FFF;
+		float: right;
+		border: none;
+		outline: none;
+		background: #9b59b6;
+		position: absolute;
+		top: 38px;
+		right: 38px;
+		cursor: pointer;
+		border-radius: 5px;
+	}
+</style>
+</head>
+<body>
+	<button type="button" id="setting"><span class="iconfont icon-shezhi"></span></button>
+	<div class="box">
+		<h2>Enter a color</h2>
+		<div id="textbox">
+			<input type="text" id="hex" placeholder="#000000" />
+			<div id="prev"></div>
+			<button type="button" id="apply">APPLY</button>
+		</div>
+	</div>
+</body>
+</html>

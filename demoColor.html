@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>	
+<script type="text/javascript">
+	$(function(){
+	    //第一个功能,为设置按钮添加点击事件
+		$("#btn").click(function (){
+			
+			//1.这是原方法,便于理解逻辑
+			// var top = $("#box").css("top");
+			// var a =parseInt(top);
+			// if (a<0) {
+			// 	$("#box").animate({
+			// 		top:"50%"
+			// 	},1000)
+			// } else{
+			// 	$("#box").animate({
+			// 		top:"-50%"
+			// 	},1000)
+			// }
+			
+			//2.这是巧妙的办法,利用CSS
+			$(".box").toggleClass("box-top");
+		});
+		
+		//第二功能,在输入框输入数值的时候,预览框要改变颜色
+		//1.先为输入框绑定键盘事件
+		$("#hex").keyup(function (){
+			//2.获取输入框内的值
+			var bColor = $("#hex").val();
+			//3.就要通过获取的值,改变预览框的背景颜色
+			$("#prev").css("background",bColor);
+		});
+		
+		//第三个功能,为应用按钮apply绑定点击事件
+		$("#apply").click(function (){
+			var bColor = $("#hex").val();
+			$("body").css("background",bColor);
+		})
+	});
+</script>
+<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1186265_drprg8acpx.css"/>
+<style type="text/css">
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	body {
+		background: #F2F2F2;
+	}
+	#btn {
+		border: none;
+		outline: none;
+		background: none;
+		float: right;
+		margin: 20px;
+		cursor: pointer;
+		transition: 0.6s;
+	}
+	#btn i {
+		font-size: 36px;
+	}
+	#btn:hover {
+		transform: rotate(90deg);
+	}
+	.box {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		background: lightgray;
+		border-radius: 5px;
+		transition: 0.8s;
+		opacity: 0;
+	}
+	.box-top {
+		top: 50%;
+		opacity: 1;
+	}
+	h2 {
+		color: #FFFFFF;
+		padding: 20px;
+		background: #3498db;
+		border-top-right-radius: 5px;
+		border-top-left-radius: 5px;
+	}
+	#textbox {
+		padding: 20px;
+		position: relative;
+	}
+	input {
+		padding: 0 50px;
+		outline: none;
+	}
+	#prev {
+		width: 40px;
+		height: 16px;
+		background: #000000;
+		position: absolute;
+		top: 25px;
+		left: 22px;
+	}
+	
+	#apply {
+		width: 50px;
+		height: 16px;
+		position: absolute;
+		top: 25px;
+		right: 22px;
+		border: none;
+		outline: none;
+		color: #FFFFFF;
+		background: #3498db;
+		cursor: pointer;
+		border-radius: 2px;
+	}
+	
+</style>
+</head>
+<body>
+	<button type="button" id="btn"><i class="iconfont icon-shezhi"></i></button>
+	<div class="box">
+		<h2>ENTER A COLOR</h2>
+		<div id="textbox">
+			<input id="hex" placeholder="#000000"/>
+			<div id="prev">
+				
+			</div>
+			<button type="button" id="apply">APPLY</button>
+		</div>
+	</div>
+</body>
+</html>
