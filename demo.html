@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+$(function(){
+	//1.为所有图片地址创建一个数组进行保存
+	var imgSrc = [
+		"imgs/1.jpg",
+		"imgs/2.jpg",
+		"imgs/3.jpg",
+		"imgs/4.jpg",
+		"imgs/5.jpg"
+	];
+	
+	//2.为所有导航按钮绑定鼠标事件
+	$("ul>li").mouseenter(function (){
+		
+		//3.获取导航的索引以方便使用
+		var $index = $(this).index();
+		
+		//4.移除所有导航的激活样式
+		$("ul>li").removeClass("active");
+		
+		//5.为鼠标移动到的当前导航添加激活class类
+		$(this).addClass("active");
+		
+		//6.定义一个变量,让图片地址的索引通过导航的索引来决定.
+		var $imgSrc = imgSrc[$index];
+		
+		//7.为img添加过渡动画淡出到并加入回调函数,这里注意加入stop()停止上一个动画,避免bug.
+		$("img").stop().fadeTo("fast",0.11,function (){
+			
+			//8.让淡出到效果结束后通过索引切换图片地址
+			$("img").attr("src",$imgSrc);
+			
+			//9.切换图片地址后,让图片淡出到最大显示程度.
+			$("img").fadeTo("slow",1);
+		});
+	})
+	
+});
+</script>
+</head>
+<style type="text/css">
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	body {
+		background: #F2F2F2;
+	}
+	ul {
+		list-style: none;
+	}
+	#box {
+		width: 500px;
+		height: 300px;
+		background: pink;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+	}
+	ul>li {
+		width: 100px;
+		height: 50px;
+		background: skyblue;
+		text-align: center;
+		line-height: 50px;
+		float: left;
+		color: #FFFFFF;
+		transition: 0.6s;
+	}
+	.title .active {
+		color: skyblue;
+		background: #fff;
+	}
+	#img-warp {
+		width: 100%;
+		height: 100%;
+		background: #F2F2F2;
+		overflow: hidden;
+	}
+	img {
+		width: 100%;
+	}
+</style>
+<body>
+	<div id="box">
+		<ul class="title">
+			<li class="active">松鼠</li>
+			<li>饼干</li>
+			<li>小孩</li>
+			<li>老人</li>
+			<li>娃娃</li>
+		</ul>
+		<div id="img-warp">
+			<img src="imgs/1.jpg" >
+		</div>
+	</div>
+</body>
+</html>
