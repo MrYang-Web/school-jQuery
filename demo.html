@@ -16,9 +16,24 @@ $(function(){
 		"imgs/5.jpg"
 	];
 	
+	var tIndex = 0;
+	
+	var timer = setInterval(t,1500);
+	function  t (){
+		tIndex++;
+		if (tIndex == 5) {
+			tIndex = 0;
+		};
+		$("li").removeClass("active");
+		$("li").eq(tIndex).addClass("active");
+		
+		var tImgSrc = imgSrc[tIndex];
+		$("img").attr("src",tImgSrc);
+	};
+	
 	//2.为所有导航按钮绑定鼠标事件
 	$("ul>li").mouseenter(function (){
-		
+		clearInterval(timer);
 		//3.获取导航的索引以方便使用
 		var $index = $(this).index();
 		
@@ -32,7 +47,7 @@ $(function(){
 		var $imgSrc = imgSrc[$index];
 		
 		//7.为img添加过渡动画淡出到并加入回调函数,这里注意加入stop()停止上一个动画,避免bug.
-		$("img").stop().fadeTo("fast",0.11,function (){
+		$("img").stop().fadeTo("fast",0.33,function (){
 			
 			//8.让淡出到效果结束后通过索引切换图片地址
 			$("img").attr("src",$imgSrc);
@@ -40,8 +55,13 @@ $(function(){
 			//9.切换图片地址后,让图片淡出到最大显示程度.
 			$("img").fadeTo("slow",1);
 		});
-	})
+	});
+	$("ul>li").mouseleave(function (){
+		tIndex = $(this).index();
+		timer = setInterval(t,1500);
+	});
 	
+
 });
 </script>
 </head>
@@ -73,7 +93,7 @@ $(function(){
 		line-height: 50px;
 		float: left;
 		color: #FFFFFF;
-		transition: 0.6s;
+		transition: 1s;
 	}
 	.title .active {
 		color: skyblue;
