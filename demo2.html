@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+	    var a = 1;
+		function b (){
+			console.log(a);
+			a++;
+		}
+		var timer = setInterval(b,1000);
+		$("#btn01").click(function (){
+			clearInterval(timer);
+			timer = setInterval(b,1000);
+		})
+		$("#btn02").click(function (){
+			clearInterval(timer);
+		});
+	});
+</script>
+</head>
+<body>
+	<button type="button" id="btn01">开始打印</button>
+	<button type="button" id="btn02">停止打印</button>
+</body>
+</html>
