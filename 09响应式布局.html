@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content=""/>
+<link rel="stylesheet" type="text/css" href="desktop.css"/>
+<link rel="stylesheet" media="(max-width:800px;)" type="text/css" href="mobile.css"/>
+<title>响应式布局</title>
+</head>
+<link rel="stylesheet" type="text/css" href=""/>
+<style type="text/css">
+	body {
+		background: #F2F2F2;
+		width: 100%;
+		height: 1000px;
+	}
+	#box {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content:center;
+		align-items: flex-end;
+	}
+	.content {
+		flex: 20%;
+		width: 120px;
+		height: 200px;
+		background: indianred;
+		margin: 10px;
+	}
+	@media screen and (max-width:500px) {
+		.content {
+			flex:100%;
+		}
+	}
+</style>
+<body>
+	<div id="box">
+		<div class="content">
+			<h2>内容一</h2>
+			<p>今天我们开始学习响应式布局</p>
+			<p>先简单讲解一下flex布局</p>
+		</div>
+		<div class="content">
+			<h2>内容二</h2>
+			<p>今天我们开始学习响应式布局</p>
+			<p>先简单讲解一下flex布局</p>
+		</div>
+		<div class="content">
+			<h2>内容三</h2>
+			<p>今天我们开始学习响应式布局</p>
+			<p>先简单讲解一下flex布局</p>
+		</div>
+		<div class="content">
+			<h2>内容四</h2>
+			<p>今天我们开始学习响应式布局</p>
+			<p>先简单讲解一下flex布局</p>
+		</div>
+		<div class="content">
+			<h2>内容五</h2>
+			<p>今天我们开始学习响应式布局</p>
+			<p>先简单讲解一下flex布局</p>
+		</div>
+	</div>
+</body>
+</html>
